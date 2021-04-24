@@ -273,9 +273,38 @@ def exponential(t, eta_init, last_eta, d = 0.01):
     """Exponential  learning rate with decay d."""
     return eta_init*np.exp(-d*t)
 
+###################################################################################
+# Sanitizing tsne inputs.
+###################################################################################
+
+def sanitize_inputs(X, niter, alpha_init, alpha_final, alpha_thr, eta_init,
+                    d, exg, exg_thr, perplexity, pca_dims, optim, verbose, df):
+    
+    """Checks to ensure that all inputs to the tsne function are valid and raises
+    and informative assertion error for any inputs that are not valid"""
+    
+    assert isinstance(X, np.ndarray) and len(X.shape) == 2, "X must be a 2-D numpy array"
+    assert isinstance(niter, int) and niter > 0, "niter must be an integer greater than 0"
+    assert isinstance(alpha_init, int) or isinstance(alpha_init, float), "alpha_init must be a number"
+    assert isinstance(alpha_final, int) or isinstance(alpha_final, float), "alpha_final must be a number"
+    assert alpha_init > 0 and alpha_final > 0, "alpha_init and alpha_final must be greater than 0" 
+    assert isinstance(alpha_thr, int) and alpha_thr > 0, "alpha_thr must be an integer greater than 0"
+    assert isinstance(eta_init, int) or isinstance(eta_init, float), "eta_init must be a number"
+    assert eta_init > 0, "eta_init must be greater than 0"
+    assert isinstance(d, int) and d >= 2, "d must be an integer greater than or equal to 2"
+    assert isinstance(exg, int) or isinstance(exg, float), "exg must be a number"
+    assert exg >= 1, "exg must be greater than or equal to 1"
+    assert isinstance(exg_thr, int) and exg_thr >= 1, "exg_thr must be an interger greater than or equal to 1"
+    assert isinstance(perplexity, int) or isinstance(perplexity, float), "perplexity must be a number"
+    assert perplexity >= 5 and perplexity <= 250, "perplexity must be between 5 and 250"
+    assert isinstance(pca_dims, int) and pca_dims >= 2, "pca_dims must be an integer greater than or equal to 2"
+    assert optim in ["none", "fast", "fastest"], "optim can only take on values of none, fast, and fastest"
+    assert isinstance(verbose, bool), "verbose must be True or False"
+    assert isinstance(df, int) or isinstance(df, float), "df must be a number"
+    assert df > 0, "df must greater than 0"
 
 ###################################################################################
-# Main functions.
+# Main function.
 ###################################################################################
 
 
@@ -306,15 +335,12 @@ def tsne(X, niter = 1000, alpha_init = 0.5, alpha_final = 0.8, alpha_thr = 250,
     Outputs:
         Y - (niter + 2) x N x d array of embeddings for each iteration"""
     
-    #
-    #
-    # TO do - sanitize inputs.
-    #
-    #
+    # Sanitize inputs
+    sanitize_inputs(X, niter, alpha_init, alpha_final, alpha_thr, eta_init,
+                    d, exg, exg_thr, perplexity, pca_dims, optim, verbose, df)
 
-    
+    # Reduce dimension if needed
     if X.shape[1] > pca_dims:
-        # Reduce dimension if needed.
         X = pca(X, pca_dims)
     
     # Get affinities with exaggeration.

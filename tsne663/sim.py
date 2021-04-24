@@ -1,4 +1,4 @@
-from tsne import tsne
+from .tsne import tsne
 import numpy as np
 import matplotlib.pyplot as plt
 import plotly.express as px
