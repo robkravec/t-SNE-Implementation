@@ -1,4 +1,4 @@
-import data.data_utilities as util
+import data_utilities as util
 from sklearn.datasets import fetch_olivetti_faces
 
 ###################################################################################

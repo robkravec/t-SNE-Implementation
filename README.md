@@ -6,7 +6,7 @@ Contributors: Marc Brooks, Rob Kravec, Steven Winter
 
 ## Description
 
-This repository contains the source code for a new package, `tsne663`, as well as a reproducible report that satisfies the requirements of the STA 663 project. The code to produce the report is contained in `writeup.ipynb` and is converted into a pdf without visible code using the following terminal command: `jupyter nbconvert --to pdf --no-input writeup.ipynb`
+This repository contains the source code for a new package, `tsne663`, as well as a reproducible report that satisfies the requirements of the STA 663 project. Producing `writeup.pdf` requires multiple steps, which include downloading data, generating and saving plots, and running code within `writeup.ipynb`, all of which take a non-negligible amount of time. To make this process more modular, we use a `Makefile`, and `writeup.pdf` can be reproduced by simply navigating to this repository in the terminal and typing `make`. For aesthetics, we do not show any code in `writeup.pdf`, but all code can be seen in `writeup.ipynb` and the `.py` files referenced in the `Makefile`.
 
 ## Installation
 
