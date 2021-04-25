@@ -2,7 +2,7 @@ import numpy as np
 np.random.seed(663)
 import sys
 sys.path.append("../tsne663")
-from .tsne import *
+from tsne import *
 
 ###########################################################################################################################
 # Get random data to test
@@ -52,4 +52,4 @@ tsne_d3 = tsne(X, d=3,  niter = 3, verbose=False)
 assert isinstance(tsne_d3, np.ndarray), "Output of 3D t-SNE function is not a numpy array" 
 assert tsne_d3.shape[-1] == 3, "Output of t-SNE function with these inputs should be three-dimensional"
 
-print("All functions return the correct output")
+print("All functions return the correct output type.")
