@@ -11,7 +11,7 @@ from mlxtend.data import loadlocal_mnist
 
 import matplotlib.pyplot as plt
 
-from tsne import *
+from tsne663 import *
 
 
 ###################################################################################
@@ -44,7 +44,7 @@ def pull_file(url, dest_file, chunk_size=128):
     
 
 # https://stackoverflow.com/questions/9419162/download-returned-zip-file-from-url
-def get_uci(data_folder="./data/",  chunk_size=128):
+def get_uci(data_folder="./",  chunk_size=128):
     """Retreives PANCAN gene expression data from UCI ML repository
        Saves data within a folder called TCGA-PANCAN-HiSeq-801x20531.
        
@@ -69,7 +69,7 @@ def get_uci(data_folder="./data/",  chunk_size=128):
     os.remove(save_path)
         
     
-def get_humanM1_10x(data_folder="./data",  chunk_size=128):
+def get_humanM1_10x(data_folder="./",  chunk_size=128):
     """Retreives gene expression data on single-nucleus transcriptomes from 2 post-mortem human brain specimen.
        The data were generated as part of a BICCN collaboration to characterize cell type diversity in M1 
        across species and data modalities. 
@@ -106,7 +106,7 @@ def get_humanM1_10x(data_folder="./data",  chunk_size=128):
     
     
     
-def get_mnist(data_folder='./data', chunk_size=128):
+def get_mnist(data_folder='./', chunk_size=128):
     """Retreives images of mnist digits and corresponding labels
        Saves data within a folder called mnist.
        
@@ -181,7 +181,7 @@ def get_mnist(data_folder='./data', chunk_size=128):
     os.remove(label_bytes)
     
     
-def get_coil20(data_folder='./data', chunk_size=128):
+def get_coil20(data_folder='./', chunk_size=128):
     """Retreives COIL-20 data of processed images.
        Saves data within a folder called coil-20.
        
@@ -212,7 +212,7 @@ def get_coil20(data_folder='./data', chunk_size=128):
 # Processing data so that they are in the appropiate format
 ###################################################################################
 
-def proc_coil20(data_folder='./data/coil-20-proc'):
+def proc_coil20(data_folder='./coil-20-proc'):
     """Generates feature matrix for images from COIL-20 data set and extracts image labels
     from file names.
        Saves data within a folder called coil-20.
@@ -367,7 +367,8 @@ def load_humanM1(folderpath='./data/humanM1_10x', nrows=3000):
     # Merge sample ids to meta_data to get class labels 
     labels = labels.merge(meta_data, how="left", on="sample_name")
     
-    return data.values[:,1:].astype(int), labels.class_label.values
+    return data.values[:,1:].astype(int), labels[["class_label", "subclass_label"]].values
+
 
 
     
@@ -428,12 +429,13 @@ def compare_methods_2d(data_list: list, label_list: list, data_names: list, fmt_
     
     # Configure axes
     axes = []
-    fig = plt.figure(figsize = (16, 3 * nrows))
+    fig = plt.figure(figsize = (12, 3 * nrows))
     
     for ind1, X in enumerate(data_list):
         fmt_dict = fmt_list[ind1]
         labs = label_list[ind1]
         for ind2, method in enumerate(methods):
+            
             embedding = partial(methods[method], **params[method]) 
             
             if method=="t-SNE":
@@ -451,16 +453,16 @@ def compare_methods_2d(data_list: list, label_list: list, data_names: list, fmt_
             axes.append(fig.add_subplot(nrows, ncols, 1 + ind1 + (ind2)*ncols))
             if ind2 == 0:
                 axes[-1].set_title(data_names[ind1],
-                                   fontdict={'size':24, 'fontweight':'normal'})
+                                   fontdict={'size':20, 'fontweight':'normal'})
                 
             if ind1 == 0:
                 axes[-1].set_ylabel(method, 
                                     rotation=0,
-                                    fontdict={'size':18, 'fontweight':'normal'})
-                axes[-1].yaxis.set_label_coords(-0.2,.8)
+                                    fontdict={'size':16, 'fontweight':'normal'})
+                axes[-1].yaxis.set_label_coords(-0.15,.8)
 
             for lab in fmt_dict.keys():
-                index = labs == labs
+                index = labs == lab
                 fmt = fmt_dict[lab]
                 axes[-1].scatter(low_d[index,0], low_d[index,1], alpha=0.8, 
                                  c=fmt['c'], marker = fmt['m'],
@@ -475,10 +477,12 @@ def compare_methods_2d(data_list: list, label_list: list, data_names: list, fmt_
             axes[-1].xaxis.set_ticks_position('none')
             axes[-1].yaxis.set_ticks_position('none')
             
+
             
 
     fig.subplots_adjust(bottom=0.3, wspace=0.33)    
     fig.tight_layout()    
+    
     
     
     
