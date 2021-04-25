@@ -10,7 +10,7 @@ This repository contains the source code for a new package, `tsne663`, as well a
 
 ## Installation
 
-This package (`tsne663`) can be installed from [TestPyPI](https://test.pypi.org/project/tsne663/0.4/) using `pip install -i https://test.pypi.org/simple/ tsne663==0.4`. Alternatively, one can navigate to this Github repository and run `python setup.py install`. 
+This package (`tsne663`) can be installed from [TestPyPI](https://test.pypi.org/project/tsne663/0.5/) using `pip install -i https://test.pypi.org/simple/ tsne663==0.5`. Alternatively, one can navigate to this Github repository and run `python setup.py install`. 
 
 Upon installation, the following prerequisites will also be installed (versions shown are those used during development, which ensures that the package will work properly):
 
