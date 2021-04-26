@@ -11,9 +11,9 @@ import os
 
 
 if not os.path.exists("./plots"):
-    os.mkdir("./plots")
+    os.mkdir("plots")
     
-save_path = "./plots/plot1.png"
+save_path = "plots/plot1.png"
 
 
 Xm, ym = load_mnist('mnist', size=6000)

@@ -9,13 +9,13 @@ import os
 
 
 if not os.path.exists("./plots"):
-    os.mkdir("./plots")
+    os.mkdir("plots")
     
-save_path = "./plots/plot2.png"
+save_path = "plots/plot2.png"
 
 
 Xcan, ycan = load_UCI('TCGA-PANCAN-HiSeq-801x20531')
-Xm1, ym1   = load_humanM1('humanM1_10x', nrows=4000)
+Xm1, ym1   = load_humanM1('humanM1_10x', nrows=2000)
 ym1 = ym1[:,1].copy()
 
 
