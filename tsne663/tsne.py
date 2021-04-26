@@ -284,7 +284,7 @@ def sanitize_inputs(X, niter, alpha_init, alpha_final, alpha_thr, eta_init,
     and informative assertion error for any inputs that are not valid"""
     
     assert isinstance(X, np.ndarray) and len(X.shape) == 2, "X must be a 2-D numpy array"
-    assert isinstance(niter, int) and niter > 0, "niter must be an integer greater than 0"
+    assert (isinstance(niter, int) or isinstance(niter, np.int64)) and niter > 0, "niter must be an integer greater than 0"
     assert isinstance(alpha_init, int) or isinstance(alpha_init, float), "alpha_init must be a number"
     assert isinstance(alpha_final, int) or isinstance(alpha_final, float), "alpha_final must be a number"
     assert alpha_init > 0 and alpha_final > 0, "alpha_init and alpha_final must be greater than 0" 
@@ -310,7 +310,7 @@ def sanitize_inputs(X, niter, alpha_init, alpha_final, alpha_thr, eta_init,
 
 def tsne(X, niter = 1000, alpha_init = 0.5, alpha_final = 0.8, alpha_thr = 250, 
          eta_init = 100, lr_fun = constant, d = 2, exg = 4, exg_thr = 50, 
-         perplexity = 30, pca_dims = 30, optim = "fast", verbose = True, df = 1):
+         perplexity = 30, pca_dims = 30, optim = "fastest", verbose = True, df = 1):
     """Run t-SNE.
     
     Required inputs: 
