@@ -1,5 +1,4 @@
 from data_utilities import *
-from sklearn.datasets import fetch_olivetti_faces
 import os 
 
 

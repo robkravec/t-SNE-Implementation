@@ -12,7 +12,7 @@ util.get_uci()
 # Download Allen Institute Human M1 10x data set
 util.get_humanM1_10x()
 # Download MNIST data set
-util.get_mnist()
+# util.get_mnist() # link to data is glitchy 
 # Download COIL-20 data set
 util.get_coil20()
 # Download Olivetti faces data set through sklearn api
