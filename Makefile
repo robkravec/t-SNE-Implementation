@@ -13,7 +13,7 @@ data/coil-20-proc/X_COIL.npy data/coil-20-proc/y_COIL.csv data/humanM1_10x/matri
 	cd data; python3 get_data.py
 
 clean_pdf:
-	rm writeup.pdf
+	rm Implementing\ t-SNE\ in\ Python\ with\ Optimized\ Code\ and\ Examples.pdf
 
 clean_plots:
 	rm -r data/plots/
