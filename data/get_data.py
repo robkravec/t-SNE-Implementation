@@ -1,4 +1,5 @@
 import data_utilities as util
+import os, datetime 
 from sklearn.datasets import fetch_olivetti_faces
 
 ###################################################################################
@@ -19,3 +20,8 @@ fetch_olivetti_faces()
 
 # Process COIL-20 data set into relevant features
 util.proc_coil20()
+
+# Set timestamp for TCGA data to current time 
+now = datetime.datetime.now().timestamp()
+os.utime('TCGA-PANCAN-HiSeq-801x20531/data.csv', (now, now))
+os.utime('TCGA-PANCAN-HiSeq-801x20531/labels.csv', (now, now))
