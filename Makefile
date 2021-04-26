@@ -1,5 +1,5 @@
-Implementing\ t-SNE\ in\ Python\ with\ Optimized\ Code\ and\ Examples.pdf: Implementing\ t-SNE\ in\ Python\ with\ Optimized\ Code\ and\ Examples.ipynb data/plots/plot1.png data/plots/plot2.png
-	jupyter nbconvert --to pdf --no-input --execute Implementing\ t-SNE\ in\ Python\ with\ Optimized\ Code\ and\ Examples.ipynb
+final_paper.pdf: Implementing\ t-SNE\ in\ Python\ with\ Optimized\ Code\ and\ Examples.ipynb data/plots/plot1.png data/plots/plot2.png
+	jupyter nbconvert --to pdf --no-input --execute Implementing\ t-SNE\ in\ Python\ with\ Optimized\ Code\ and\ Examples.ipynb --output final_paper.pdf
    
 data/plots/plot2.png: data/humanM1_10x/matrix.csv data/humanM1_10x/metadata.csv data/TCGA-PANCAN-HiSeq-801x20531/data.csv data/TCGA-PANCAN-HiSeq-801x20531/labels.csv data/makeplot2.py
 	mkdir -p data/plots
