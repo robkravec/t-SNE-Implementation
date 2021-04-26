@@ -24,4 +24,4 @@ clean_data:
 	rm -r data/humanM1_10x
 	rm -r data/TCGA-PANCAN-HiSeq-801x20531
 
-.PHONY: clean plots; clean_pdf; clean_data;
+.PHONY: clean_plots; clean_pdf; clean_data;
