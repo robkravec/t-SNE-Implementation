@@ -42,7 +42,7 @@ The `tsne663` package contains functions to (1) implement t-SNE and (2) test / v
 
 ![](data/plots/Steps.png)
 
-## Skills on display / acknowledgements
+## Skills on display / Acknowledgements
 
 This project was completed as part of STA 663 (Computational Statistics and Statistical Computing) at Duke, taught by Professor Cliburn Chan. I partnered with two classmates, Marc Brooks and Steven Winter, on this project. We all contributed to the base code of the `tsne663` package, which required understanding an academic publication to the level of depth necessary to reproduce results. For the final report, I focused on testing our t-SNE implementation on simulated data and making our research reproducible by creating a Makefile.
 
