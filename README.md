@@ -2,8 +2,6 @@
 
 Reference paper: "Visualizing Data using t-SNE" by Laurens van der Maaten and Geoffrey Hinton
 
-Contributors: Marc Brooks, Rob Kravec, Steven Winter
-
 ## Description
 
 This repository contains the source code for a new package, `tsne663`, as well as an `.ipynb` file to generate a reproducible report. Producing a `final_paper.pdf` requires multiple steps, which include downloading data, generating and saving plots, and running code within `Implementing t-SNE in Python with Optimized Code and Examples.ipynb`, all of which take a non-negligible amount of time. To make this process more modular, we use a `Makefile`, and a `final_paper.pdf` can be reproduced by simply navigating to this repository in the terminal and typing `make`. For aesthetics, the `Makefile` is configured to not show any code in `final_paper.pdf`.
