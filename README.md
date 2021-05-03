@@ -1,4 +1,4 @@
-# Implementation of t-SNE in Python
+# Python Implementation of t-SNE
 
 Reference paper: "Visualizing Data using t-SNE" by Laurens van der Maaten and Geoffrey Hinton
 
