@@ -34,11 +34,11 @@ The `tsne663` package contains functions to (1) implement t-SNE and (2) test / v
 
 ## Selected simulation results
 
-#### t-SNE results for various perplexity values on 3D shapes**
+### t-SNE results for various perplexity values on 3D shapes
 
 ![](data/plots/Perplexity.png)
 
-#### Evolution of t-SNE results by iteration number on 3D shapes**
+### Evolution of t-SNE results by iteration number on 3D shapes
 
 ![](data/plots/Steps.png)
 
