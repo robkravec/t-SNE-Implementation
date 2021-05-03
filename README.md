@@ -1,12 +1,10 @@
-# Implementation of t-SNE in Python
+# Python Implementation of t-SNE
 
 Reference paper: "Visualizing Data using t-SNE" by Laurens van der Maaten and Geoffrey Hinton
 
-Contributors: Marc Brooks, Rob Kravec, Steven Winter
-
 ## Description
 
-This repository contains the source code for a new package, `tsne663`, as well as an `.ipynb` file to generate a reproducible report. Producing a `final_paper.pdf` requires multiple steps, which include downloading data, generating and saving plots, and running code within `Implementing t-SNE in Python with Optimized Code and Examples.ipynb`, all of which take a non-negligible amount of time. To make this process more modular, we use a `Makefile`, and a `final_paper.pdf` can be reproduced by simply navigating to this repository in the terminal and typing `make`. For aesthetics, the `Makefile` is configured to not show any code in `final_paper.pdf`.
+This repository contains the source code for a new package, `tsne663`, as well as an `.ipynb` file to generate a reproducible report. Producing `final_paper.pdf` requires multiple steps, which include downloading data, generating and saving plots, and running code within `Implementing t-SNE in Python with Optimized Code and Examples.ipynb`, all of which take a non-negligible amount of time. To make this process more modular, we use a `Makefile`, and `final_paper.pdf` can be reproduced by simply navigating to this repository in the terminal and typing `make`. For aesthetics, the `Makefile` is configured to not show any code in `final_paper.pdf`.
 
 ## Installation
 
@@ -36,17 +34,17 @@ The `tsne663` package contains functions to (1) implement t-SNE and (2) test / v
 
 ## Selected simulation results
 
-**t-SNE results for various perplexity values on 3D shapes**
+### t-SNE results for various perplexity values on 3D shapes
 
+![](data/plots/Perplexity.png)
 
-**Evolution of t-SNE results by iteration number on 3D shapes**
+### Evolution of t-SNE results by iteration number on 3D shapes
 
+![](data/plots/Steps.png)
 
-## Skills on display
+## References / Acknowlegements
 
 This project was completed as part of STA 663 (Computational Statistics and Statistical Computing) at Duke, taught by Professor Cliburn Chan. I partnered with two classmates, Marc Brooks and Steven Winter, on this project. We all contributed to the base code of the `tsne663` package, which required understanding an academic publication to the level of depth necessary to reproduce results. For the final report, I focused on testing our t-SNE implementation on simulated data and making our research reproducible by creating a Makefile.
-
-## References
 
 - L.J.P. van der Maaten and G.E. Hinton. Visualizing High-Dimensional Data Using t-SNE. Journal of Machine Learning Research 9(Nov):2579-2605, 2008.
 - Vin de Silva and Joshua B. Tenenbaum. Global Versus Local Methods in Nonlinear Dimensionality Reduction. Proccedings of the 15th International Convference on Neural Information Processing Systems. Jan 2002.
